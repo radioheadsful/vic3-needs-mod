@@ -1,2 +1,9 @@
 ﻿l_english:
-  dummy: "Dummy"
+  popneed_standard_food: "Standard Food"
+  popneed_basic_clothing: "Basic Clothing"
+  popneed_luxury_clothing: "Luxury Clothing"
+  popneed_basic_household_items: "Basic Household Items"
+  popneed_standard_household_items: "Standard Household Items"
+  popneed_luxury_household_items: "Luxury Household Items"
+  popneed_luxury_intoxicants: "Luxury Intoxicants"
+  popneed_personal_transport: "Personal Transport"

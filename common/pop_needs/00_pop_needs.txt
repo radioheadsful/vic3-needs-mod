@@ -1,92 +1,265 @@
-﻿# goods						The good being referenced
-# weight					The base weight that is applied to this good based on market Sell Order share
-# max_supply_share			The maximum weight that can be applied to this good based on market Sell Order share, relative supply above this amount will have no further impact on base weight
-# min_supply_share			If above 0, a minimum of this multiplier of the base weight will be applied to a good regardless of its market Sell Order share
-
-popneed_simple_clothing = {
-	default = fabric
-	entry = {
-		goods = fabric
-		weight = 1
-		max_supply_share = 0.5
-		min_supply_share = 0
-	}
-	entry = {
-		goods = clothes
-		weight = 2
-		max_supply_share = 1
-		min_supply_share = 0
-	}
-}
-
-popneed_crude_items = {
-	default = wood
-	entry = {
-		goods = wood
-		weight = 1
-		max_supply_share = 0.5
-		min_supply_share = 0
-	}
-	entry = {
-		goods = furniture
-		weight = 2
-		max_supply_share = 1
-		min_supply_share = 0
-	}
-}
-
+﻿#
+# Poor strata needs
+# Start at SoL == 1  (Starving)
+# Peaks at SoL >= 10 (Impoverished)
+# Tails at SoL == 15 (Middling)
+#
 popneed_basic_food = {
 	default = grain
-	entry = {
-		goods = groceries
-		weight = 2
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
+	# Staple
 	entry = {
 		goods = grain
-		weight = 1
-		max_supply_share = 0.25
+		weight = 2
+		max_supply_share = 0.7
 		min_supply_share = 0
 	}
 	entry = {
 		goods = fish
 		weight = 1
-		max_supply_share = 0.25
+		max_supply_share = 0.4
+		min_supply_share = 0
+	}
+	entry = {
+		goods = fruit
+		weight = 1.5
+		max_supply_share = 0.4
+		min_supply_share = 0
+	}
+	# Desire
+	entry = {
+		goods = groceries
+		weight = 2
+		max_supply_share = 0.3
 		min_supply_share = 0
 	}
 	entry = {
 		goods = meat
-		weight = 0.5
-		max_supply_share = 0.1
-		min_supply_share = 0.01
-	}
-	entry = {
-		goods = fruit
-		weight = 0.5
-		max_supply_share = 0.1
-		min_supply_share = 0.01
+		weight = 2
+		max_supply_share = 0.05
+		min_supply_share = 0
 	}
 	entry = {
 		goods = sugar
-		weight = 0.5
-		max_supply_share = 0.1
-		min_supply_share = 0.01
+		weight = 2
+		max_supply_share = 0.05
+		min_supply_share = 0
 	}
 }
 
+popneed_basic_clothing = {
+	default = fabric
+	# Need
+	entry = {
+		goods = fabric
+		weight = 1
+		max_supply_share = 1
+		min_supply_share = 0
+	}
+	# Desire
+	entry = {
+		goods = clothes
+		weight = 2
+		max_supply_share = 0.5
+		min_supply_share = 0
+	}
+}
+
+popneed_basic_household_items = {
+	default = furniture
+	entry = {
+		goods = furniture
+		weight = 2
+		max_supply_share = 0.6
+		min_supply_share = 0.1
+	}
+	entry = {
+		goods = hardwood
+		weight = 0.5
+		max_supply_share = 0.2
+		min_supply_share = 0.1
+	}
+	entry = {
+		goods = glass
+		weight = 1
+		max_supply_share = 0.6
+		min_supply_share = 0.1
+	}
+	# entry = {
+	# 	goods = iron		# Nails and the like
+	# 	weight = 0.5
+	# 	max_supply_share = 0.2
+	# 	min_supply_share = 0.1
+	# }
+}
+
+#
+# Middle strata needs
+# Start at SoL == 10 (Impoverished)
+# Peaks at SoL >= 20 (Middling)
+# Tails at SoL == 30 (Affluent)
+#
+popneed_standard_food = {
+	default = groceries
+	# Staple
+	entry = {
+		goods = groceries
+		weight = 1
+		max_supply_share = 0.4
+		min_supply_share = 0
+	}
+	entry = {
+		goods = fish
+		weight = 1
+		max_supply_share = 0.4
+		min_supply_share = 0
+	}
+	entry = {
+		goods = fruit
+		weight = 1
+		max_supply_share = 0.2
+		min_supply_share = 0
+	}
+	# Desire
+	entry = {
+		goods = meat
+		weight = 2
+		max_supply_share = 0.2
+		min_supply_share = 0
+	}
+	entry = {
+		goods = sugar
+		weight = 2
+		max_supply_share = 0.1
+		min_supply_share = 0
+	}
+}
+
+popneed_standard_clothing = {
+	default = clothes
+	# Need
+	entry = {
+		goods = clothes
+		weight = 1
+		max_supply_share = 1
+		min_supply_share = 0
+	}
+	# Desire
+	entry = {
+		goods = luxury_clothes
+		weight = 2
+		max_supply_share = 0.3
+		min_supply_share = 0
+	}
+}
+
+popneed_standard_household_items = {
+	default = furniture
+	entry = {
+		goods = furniture
+		weight = 1
+		max_supply_share = 0.6
+		min_supply_share = 0.1
+	}
+	entry = {
+		goods = glass
+		weight = 1
+		max_supply_share = 0.6
+		min_supply_share = 0.1
+	}
+	entry = {
+		goods = paper
+		weight = 1
+		max_supply_share = 0.6
+		min_supply_share = 0.1
+	}
+}
+
+#
+# Rich strata needs
+# Start at SoL == 20 (Prosperous)
+# Plateau at SoL >= 40 (Wealthy)
+#
+popneed_luxury_food = {
+	default = meat
+	entry = {
+		goods = meat
+		weight = 1
+		max_supply_share = 0.3
+		min_supply_share = 0
+	}
+	entry = {
+		goods = fish
+		weight = 1
+		max_supply_share = 0.3
+		min_supply_share = 0
+	}
+	entry = {
+		goods = groceries
+		weight = 1
+		max_supply_share = 0.4
+		min_supply_share = 0
+	}
+	entry = {
+		goods = sugar
+		weight = 2
+		max_supply_share = 0.2
+		min_supply_share = 0
+	}
+	entry = {
+		goods = fruit
+		weight = 2
+		max_supply_share = 0.2
+		min_supply_share = 0
+	}
+}
+
+popneed_luxury_clothing = {
+	default = luxury_clothes
+	entry = {
+		goods = luxury_clothes
+		weight = 1
+		max_supply_share = 0.8
+		min_supply_share = 0
+	}
+	entry = {
+		goods = clothes
+		weight = 0.5
+		max_supply_share = 0.3
+		min_supply_share = 0
+	}
+}
+
+popneed_luxury_household_items = {
+	default = luxury_furniture
+	entry = {
+		goods = luxury_furniture
+		weight = 1
+		max_supply_share = 0.8
+		min_supply_share = 0
+	}
+	entry = {
+		goods = porcelain
+		weight = 1
+		max_supply_share = 0.8
+		min_supply_share = 0
+	}
+}
+
+#
+# Universal needs
+#
 popneed_heating = {
 	default = wood
 	entry = {
 		goods = wood
-		weight = 0.75
+		weight = 0.5
 		max_supply_share = 0.5
 		min_supply_share = 0
 	}
 	entry = {
 		goods = coal
 		weight = 1
-		max_supply_share = 0.8
+		max_supply_share = 0.5
 		min_supply_share = 0
 	}
 	entry = {
@@ -98,53 +271,8 @@ popneed_heating = {
 	entry = {
 		goods = electricity
 		weight = 3
-		max_supply_share = 1
+		max_supply_share = 0.8
 		min_supply_share = 0
-	}
-}
-
-popneed_household_items = {
-	default = furniture
-	entry = {
-		goods = furniture
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
-	entry = {
-		goods = glass
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
-	entry = {
-		goods = paper
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
-}
-
-popneed_standard_clothing = {
-	default = clothes
-	entry = {
-		goods = clothes
-		weight = 1
-		max_supply_share = 1
-		min_supply_share = 0
-	}
-	entry = {
-		goods = luxury_clothes
-		weight = 0.5
-		max_supply_share = 0.3
-		min_supply_share = 0
-	}
-}
-
-popneed_services = {
-	default = services
-	entry = {
-		goods = services
 	}
 }
 
@@ -153,42 +281,36 @@ popneed_intoxicants = {
 	entry = {
 		goods = liquor
 		weight = 1
-		max_supply_share = 0.5
-		min_supply_share = 0
-	}
-	entry = {
-		goods = tobacco
-		weight = 1
-		max_supply_share = 0.5
+		max_supply_share = 0.8
 		min_supply_share = 0
 	}
 	entry = {
 		goods = opium
 		weight = 1
-		max_supply_share = 0.5
-		min_supply_share = 0
-	}
-}
-
-popneed_luxury_drinks = {
-	default = tea
-	entry = {
-		goods = tea
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
-	entry = {
-		goods = coffee
-		weight = 1
-		max_supply_share = 0.4
+		max_supply_share = 0.8
 		min_supply_share = 0
 	}
 	entry = {
 		goods = wine
 		weight = 1
-		max_supply_share = 0.4
+		max_supply_share = 0.05
 		min_supply_share = 0
+	}
+	entry = {
+		goods = tobacco
+		weight = 1
+		max_supply_share = 0.1
+		min_supply_share = 0
+	}
+}
+
+#
+# Impoverished >= 10 SoL
+#
+popneed_services = {
+	default = services
+	entry = {
+		goods = services
 	}
 }
 
@@ -196,90 +318,72 @@ popneed_free_movement = {
 	default = transportation
 	entry = {
 		goods = transportation
+	}
+}
+
+#
+# Middling >= 15 SoL
+#
+popneed_luxury_drinks = {
+	default = coffee	# Since it's more readily available
+	entry = {
+		goods = tea
 		weight = 1
-		max_supply_share = 1
+		max_supply_share = 0.8
 		min_supply_share = 0
 	}
 	entry = {
-		goods = automobiles
-		weight = 2
-		max_supply_share = 0.75
+		goods = coffee
+		weight = 1
+		max_supply_share = 0.8
 		min_supply_share = 0
 	}
 }
 
-popneed_communication = {
-	default = transportation
+popneed_luxury_intoxicants = {
+	default = wine
 	entry = {
-		goods = transportation
-		weight = 0.5
-		max_supply_share = 0.75
+		goods = wine
+		weight = 1
+		max_supply_share = 0.7
 		min_supply_share = 0
+	}
+	entry = {
+		goods = tobacco
+		weight = 1
+		max_supply_share = 0.7
+		min_supply_share = 0
+	}
+}
+
+#
+# Secure >= 20 SoL
+#
+popneed_communication = {
+	default = services
+	entry = {
+		goods = services
+		weight = 0.5
+		max_supply_share = 1
+		min_supply_share = 0.2
 	}
 	entry = {
 		goods = telephones
 		weight = 1
-		max_supply_share = 0.4
+		max_supply_share = 0.8
 		min_supply_share = 0
 	}
 	entry = {
 		goods = radios
-		weight = 1
+		weight = 2
 		max_supply_share = 0.4
 		min_supply_share = 0
 	}
 }
 
-popneed_luxury_food = {
-	default = meat
-	entry = {
-		goods = meat
-		weight = 3
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-	entry = {
-		goods = fruit
-		weight = 2
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-	entry = {
-		goods = sugar
-		weight = 2
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-	entry = {
-		goods = groceries
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0
-	}
-}
-
-popneed_luxury_items = {
-	default = luxury_clothes
-	entry = {
-		goods = luxury_clothes
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-	entry = {
-		goods = luxury_furniture
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-	entry = {
-		goods = porcelain
-		weight = 1
-		max_supply_share = 0.4
-		min_supply_share = 0.1
-	}
-}
-
+#
+# Affluent >= 30 SoL
+#
 popneed_art = {
 	default = services
 	entry = {
@@ -291,13 +395,31 @@ popneed_art = {
 	entry = {
 		goods = fine_art
 		weight = 1
-		max_supply_share = 0.5
+		max_supply_share = 0.8
+		min_supply_share = 0
+	}
+}
+
+# Replaces free movement for pops >= 30 SoL
+popneed_personal_transport = {
+	default = transportation
+	entry = {
+		goods = transportation
+		weight = 0.5
+		max_supply_share = 1
 		min_supply_share = 0
 	}
 	entry = {
-		goods = radios
+		goods = automobiles
 		weight = 1
-		max_supply_share = 0.5
+		max_supply_share = 1
+		min_supply_share = 0
+	}
+	# TODO: reconsider if it's not a good idea
+	entry = {
+		goods = aeroplanes
+		weight = 2
+		max_supply_share = 0.25
 		min_supply_share = 0
 	}
 }
